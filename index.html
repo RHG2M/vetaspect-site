@@ -6,7 +6,6 @@
     <title>ВетАспект — Ветеринарная клиника в Ногинске</title>
     <meta name="description" content="Ветеринарная клиника ВетАспект в Ногинске. Терапия, хирургия, вакцинация, диагностика. ул. Юбилейная, 5. Ежедневно 10:00–20:00.">
     
-    <!-- Иконка сайта (favicon) -->
     <link rel="icon" href="logo.png" type="image/png">
 
     <link rel="preconnect" href="https://yandex.ru" crossorigin>
@@ -103,11 +102,10 @@
         .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 16px; }
         .header-right { display: flex; align-items: center; gap: 18px; }
         
-        /* Стили для логотипа с картинкой */
+        /* Логотип: убран gap, добавлен margin-right картинке */
         .logo { 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
             font-size: 1.5rem; 
             font-weight: 800; 
             color: var(--accent); 
@@ -118,10 +116,14 @@
         .logo-img {
             width: 40px;
             height: 40px;
+            min-width: 40px;
+            flex-shrink: 0;
             object-fit: contain;
             border-radius: 8px;
             background: #ffffff;
             padding: 2px;
+            display: block;
+            margin-right: 10px;
         }
         .logo span { color: var(--orange); }
         

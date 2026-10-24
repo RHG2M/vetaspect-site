@@ -7,7 +7,6 @@
     <meta name="description" content="Политика в отношении обработки персональных данных ветеринарной клиники ВетАспект (ИП Гаргалык С.С., ИП Финк С.В.).">
     <meta name="robots" content="noindex, follow">
     
-    <!-- Иконка сайта (favicon) -->
     <link rel="icon" href="logo.png" type="image/png">
 
     <script>
@@ -110,11 +109,10 @@
         .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 16px; }
         .header-right { display: flex; align-items: center; gap: 14px; }
         
-        /* Стили для логотипа с картинкой */
+        /* Логотип */
         .logo { 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
             font-size: 1.4rem; 
             font-weight: 800; 
             color: var(--accent); 
@@ -125,10 +123,14 @@
         .logo-img {
             width: 36px;
             height: 36px;
+            min-width: 36px;
+            flex-shrink: 0;
             object-fit: contain;
             border-radius: 8px;
             background: #ffffff;
             padding: 2px;
+            display: block;
+            margin-right: 10px;
         }
         .logo span { color: var(--orange); }
         
