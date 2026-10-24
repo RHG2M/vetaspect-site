@@ -6,7 +6,9 @@
     <title>Политика обработки персональных данных — ВетАспект</title>
     <meta name="description" content="Политика в отношении обработки персональных данных ветеринарной клиники ВетАспект (ИП Гаргалык С.С., ИП Финк С.В.).">
     <meta name="robots" content="noindex, follow">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+    
+    <!-- Иконка сайта (favicon) -->
+    <link rel="icon" href="logo.png" type="image/png">
 
     <script>
         (function () {
@@ -107,8 +109,29 @@
         }
         .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 16px; }
         .header-right { display: flex; align-items: center; gap: 14px; }
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; text-decoration: none; transition: color 0.3s ease; }
+        
+        /* Стили для логотипа с картинкой */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            color: var(--accent); 
+            letter-spacing: -0.5px; 
+            text-decoration: none; 
+            transition: color 0.3s ease; 
+        }
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #ffffff;
+            padding: 2px;
+        }
         .logo span { color: var(--orange); }
+        
         .back-link {
             display: inline-flex; align-items: center; gap: 8px;
             color: var(--accent); text-decoration: none;
@@ -314,7 +337,7 @@
         #toTop:hover { background: #e08e0b; color: #ffffff; }
 
         footer { background: var(--bg-footer); color: var(--footer-text); padding: 40px 0 24px; text-align: center; font-size: 0.9rem; transition: background-color 0.3s ease; }
-        footer .logo { color: #ffffff; display: inline-block; margin-bottom: 10px; font-size: 1.3rem; font-weight: 800; text-decoration: none; }
+        footer .logo { color: #ffffff; display: inline-flex; margin-bottom: 10px; justify-content: center; }
         footer .logo span { color: var(--orange); }
         footer a { color: var(--orange); text-decoration: none; }
         footer a:hover { color: var(--orange-hover); text-decoration: underline; }
@@ -355,7 +378,10 @@
 
     <header>
         <div class="container header-inner">
-            <a href="index.html" class="logo">Вет<span>Аспект</span></a>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Логотип ВетАспект" class="logo-img">
+                Вет<span>Аспект</span>
+            </a>
             <div class="header-right">
                 <a href="index.html" class="back-link">← Вернуться на главную</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" title="Переключить тему">🌙</button>
@@ -607,7 +633,10 @@
 
     <footer>
         <div class="container">
-            <a href="index.html" class="logo">Вет<span>Аспект</span></a>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Логотип ВетАспект" class="logo-img">
+                Вет<span>Аспект</span>
+            </a>
             <p>ИП Гаргалык Сергей Степанович · ИНН 462202145330 · ОГРНИП 326508100047981</p>
             <p style="margin-top: 4px;">ИП Финк Сергей Викторович · ИНН 341010540709 · ОГРН 326508100068487</p>
             <div class="footer-bottom">
