@@ -154,6 +154,19 @@
         .feature-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--accent); font-weight: 700; transition: color 0.3s ease; }
         .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
+        /* Стили для блока врачей */
+        .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; }
+        .doctor-card {
+            background: var(--bg-card); padding: 32px 24px; border-radius: 14px;
+            box-shadow: var(--shadow-card); text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .doctor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .doctor-card .avatar { font-size: 3.5rem; margin-bottom: 16px; }
+        .doctor-card h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--accent); font-weight: 700; transition: color 0.3s ease; }
+        .doctor-card p { color: var(--text-secondary); font-size: 0.92rem; }
+
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
         .service-card {
             background: var(--bg-card); padding: 26px 24px; border-radius: 14px;
@@ -265,18 +278,42 @@
                 <div class="feature-card">
                     <div class="icon">🩺</div>
                     <h3>Опытные специалисты</h3>
-                    <p>Терапевты, хирурги, стоматологи — полный спектр помощи.</p>
+                    <p>Терапевты, хирурги — полный спектр помощи.</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🏥</div>
                     <h3>Современное оборудование</h3>
                     <p>Диагностика, лабораторные исследования.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="icon">🚗</div>
+                    <h3>Выезд на дом</h3>
+                    <p>Оказываем помощь на дому, если питомцу сложно добраться.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="alt">
+        <div class="container">
+            <h2>Наши врачи</h2>
+            <p class="subtitle">Специалисты, которые заботятся о ваших питомцах</p>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="avatar">👨‍⚕️</div>
+                    <h3>Гаргалык Сергей Степанович</h3>
+                    <p>Ветеринарный врач</p>
+                </div>
+                <div class="doctor-card">
+                    <div class="avatar">👨‍⚕️</div>
+                    <h3>Финк Сергей Викторович</h3>
+                    <p>Ветеринарный врач</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
         <div class="container">
             <h2>Наши услуги</h2>
             <p class="subtitle">Полный спектр ветеринарной помощи</p>
@@ -287,25 +324,29 @@
                 </div>
                 <div class="service-card">
                     <h3>💉 Вакцинация</h3>
-                    <p>Плановые и экстренные прививки, оформление ветеринарных паспортов.</p>
+                    <p>Плановые прививки, оформление ветеринарных паспортов.</p>
                 </div>
                 <div class="service-card">
                     <h3>🔪 Хирургия</h3>
                     <p>Плановые и экстренные операции, кастрация, стерилизация.</p>
                 </div>
                 <div class="service-card">
-                    <h3>🦷 Стоматология</h3>
+                    <h3>🦷 Базовая стоматология</h3>
                     <p>Удаление зубного камня, лечение заболеваний ротовой полости.</p>
                 </div>
                 <div class="service-card">
                     <h3>🔬 Диагностика</h3>
                     <p>Анализы крови, лабораторные исследования.</p>
                 </div>
+                <div class="service-card">
+                    <h3>🏠 Вызов на дом</h3>
+                    <p>Выезд ветеринарного врача по Ногинску и району.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
+    <section class="alt">
         <div class="container">
             <h2>Контакты</h2>
             <p class="subtitle">Мы всегда рядом</p>
@@ -361,7 +402,7 @@
         </div>
     </section>
 
-    <section class="alt" id="appointment">
+    <section id="appointment">
         <div class="container">
             <h2>Записаться на приём</h2>
             <p class="subtitle">Оставьте заявку — мы свяжемся с вами</p>
@@ -391,6 +432,8 @@
             <div class="logo" style="font-size:1.5rem; font-weight:800;">Вет<span>Аспект</span></div>
             <p>ИП Гаргалык Сергей Степанович</p>
             <p>ИНН 462202145330 · ОГРНИП 326508100047981</p>
+            <p style="margin-top: 8px;">ИП Финк Сергей Викторович</p>
+            <p>ИНН 341010540709 · ОГРН 326508100068487</p>
             <p style="margin-top:12px;">
                 <a href="tel:+79257164339">+7 (925) 716-43-39</a> ·
                 <a href="mailto:Vet-klinika-5@mail.ru">Vet-klinika-5@mail.ru</a>
