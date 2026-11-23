@@ -1384,10 +1384,10 @@
     }
 
     /* ── Открыто / закрыто (по московскому времени) ── */
-    var OPEN_H = 10, CLOSE_H = 20;
+    var OPEN_H = 10, CLOSE_H = 20;              // часы работы, МСК
     function mskNow() {
-        var d = new Date();
-        return new Date(d.getTime() + d.getTimezoneOffset() * 60000 + 3 * 3600 * 1000);
+        // Москва = UTC+3 круглый год: берём UTC-время и прибавляем 3 часа
+        return new Date(Date.now() + 3 * 3600 * 1000);
     }
     function renderStatus() {
         var now = mskNow();
