@@ -2,494 +2,1435 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ВетАспект — Ветеринарная клиника в Ногинске</title>
-    <meta name="description" content="Ветеринарная клиника ВетАспект в Ногинске. Терапия, хирургия, вакцинация, диагностика. ул. Юбилейная, 5. Ежедневно 10:00–20:00.">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ВетАспект — ветеринарная клиника в Ногинске | ул. Юбилейная, 5</title>
+    <meta name="description" content="Ветеринарная клиника «ВетАспект» в Ногинске: терапия, хирургия, вакцинация, стоматология, анализы и выезд на дом. Ежедневно 10:00–20:00. ул. Юбилейная, 5. Телефон +7 (925) 716-43-39.">
+    <meta name="keywords" content="ветеринарная клиника Ногинск, ветеринар Ногинск, ветклиника Юбилейная 5, вакцинация собак, стерилизация кошки, анализы животных, вызов ветеринара на дом">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vet-aspect.ru/">
+
     <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Соцсети -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ВетАспект">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://vet-aspect.ru/">
+    <meta property="og:title" content="ВетАспект — ветеринарная клиника в Ногинске">
+    <meta property="og:description" content="Терапия, хирургия, вакцинация, диагностика и выезд на дом. Ежедневно 10:00–20:00, ул. Юбилейная, 5.">
+    <meta property="og:image" content="https://vet-aspect.ru/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Цвет панели браузера (обновляется скриптом) -->
+    <meta name="theme-color" id="metaTheme" content="#f4f7f6">
 
     <link rel="preconnect" href="https://yandex.ru" crossorigin>
-    <link rel="preconnect" href="https://forms.yandex.ru" crossorigin>
     <link rel="dns-prefetch" href="https://yandex.ru">
-    <link rel="dns-prefetch" href="https://forms.yandex.ru">
-
     <link rel="prefetch" href="privacy.html">
 
     <script>
         (function () {
+            var root = document.documentElement;
+            root.classList.add('js'); // блоки с анимацией скрыты только при работающем JS
             try {
                 var saved = localStorage.getItem('theme');
                 if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
+                    root.setAttribute('data-theme', 'dark');
                 }
             } catch (e) {}
         })();
     </script>
+
     <style>
+        /* ═══════════ ТОКЕНЫ ТЕМЫ ═══════════ */
         :root {
             --bg: #ffffff;
             --bg-alt: #f4f7f6;
+            --bg-soft: #eaf3f0;
             --bg-card: #ffffff;
-            --bg-header: #ffffff;
+            --bg-header: rgba(255, 255, 255, .88);
             --bg-footer: #0f1c1a;
-            --text: #1c1c1e;
-            --text-secondary: #4a5568;
-            --text-muted: #7d8f8a;
-            --border: #e6ecea;
+
+            --text: #12211e;
+            --text-body: #3c4b48;
+            --text-secondary: #5f7370;
+            --text-muted: #8aa09b;
+
+            --border: #e3eae8;
+            --border-strong: #d3e0dc;
+
             --accent: #0d5c4f;
-            --accent-hover: #094138;
+            --accent-hover: #0a4b40;
+            --accent-soft: #e3f1ed;
+
             --hero-from: #0d5c4f;
-            --hero-to: #094138;
+            --hero-to: #083f37;
             --hero-text: #ffffff;
             --hero-sub: #d4e8e3;
+            --hero-glass: rgba(255, 255, 255, .09);
+            --hero-glass-border: rgba(255, 255, 255, .22);
+
             --orange: #f39c12;
-            --orange-hover: #e08e0b;
-            --shadow-card: 0 4px 18px rgba(13, 92, 79, 0.08);
-            --shadow-card-hover: 0 10px 26px rgba(13, 92, 79, 0.14);
-            --shadow-header: 0 2px 12px rgba(13, 92, 79, 0.10);
-            --shadow-form: 0 6px 24px rgba(13, 92, 79, 0.12);
-            --shadow-map: 0 6px 22px rgba(13, 92, 79, 0.15);
+            --orange-hover: #e0890b;
+            --orange-soft: #fff3e0;
+            --green-ok: #1f9d63;
+
+            --shadow-1: 0 2px 10px rgba(13, 92, 79, .07);
+            --shadow-2: 0 10px 28px rgba(13, 92, 79, .11);
+            --shadow-3: 0 18px 44px rgba(13, 92, 79, .16);
             --footer-border: #24352f;
             --footer-text: #a8b8b3;
             --footer-muted: #7d8f8a;
+
+            --radius: 16px;
+            --container: 1140px;
+            --header-h: 72px;
+            --ease: cubic-bezier(.22, .68, .35, 1);
         }
         [data-theme="dark"] {
-            --bg: #12181a;
-            --bg-alt: #1a2226;
-            --bg-card: #1e282c;
-            --bg-header: #1a2226;
+            --bg: #101718;
+            --bg-alt: #171f22;
+            --bg-soft: #212d31;
+            --bg-card: #1b2428;
+            --bg-header: rgba(23, 31, 34, .9);
             --bg-footer: #0a0f10;
-            --text: #e8eef0;
-            --text-secondary: #a8b8b3;
-            --text-muted: #7d8f8a;
-            --border: #2c3a3f;
+
+            --text: #e9eff1;
+            --text-body: #c6d2d5;
+            --text-secondary: #9db0ac;
+            --text-muted: #748782;
+
+            --border: #2b393e;
+            --border-strong: #364950;
+
             --accent: #5cc4ad;
-            --accent-hover: #7dd4c0;
+            --accent-hover: #7fd6c2;
+            --accent-soft: #1d2f31;
+
             --hero-from: #0a2a24;
-            --hero-to: #061a16;
-            --hero-text: #ffffff;
+            --hero-to: #04120f;
             --hero-sub: #b3d8d0;
-            --orange: #f39c12;
-            --orange-hover: #ffb84d;
-            --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.35);
-            --shadow-card-hover: 0 10px 26px rgba(0, 0, 0, 0.5);
-            --shadow-header: 0 2px 12px rgba(0, 0, 0, 0.5);
-            --shadow-form: 0 6px 24px rgba(0, 0, 0, 0.4);
-            --shadow-map: 0 6px 22px rgba(0, 0, 0, 0.5);
+            --hero-glass: rgba(255, 255, 255, .06);
+            --hero-glass-border: rgba(255, 255, 255, .14);
+
+            --shadow-1: 0 2px 10px rgba(0, 0, 0, .35);
+            --shadow-2: 0 10px 28px rgba(0, 0, 0, .45);
+            --shadow-3: 0 18px 44px rgba(0, 0, 0, .55);
             --footer-border: #1e2a28;
             --footer-text: #8a9a95;
             --footer-muted: #6b7a75;
         }
+
+        /* ═══════════ БАЗА ═══════════ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
             color: var(--text);
             line-height: 1.65;
             background: var(--bg);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color .3s ease, color .3s ease;
             -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+        img, svg { max-width: 100%; }
+        a { color: var(--accent); }
+        :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; border-radius: 6px; }
 
-        header {
-            background: var(--bg-header);
-            box-shadow: var(--shadow-header);
+        .icon {
+            width: 1em; height: 1em; flex-shrink: 0;
+            fill: none; stroke: currentColor; stroke-width: 1.8;
+            stroke-linecap: round; stroke-linejoin: round;
+        }
+        .icon.fill { fill: currentColor; stroke: none; }
+
+        .skip-link {
+            position: absolute; left: -9999px; top: 8px; z-index: 500;
+            background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px;
+            font-weight: 700; text-decoration: none;
+        }
+        .skip-link:focus { left: 12px; }
+
+        .anchor-alias { display: block; height: 0; scroll-margin-top: calc(var(--header-h) + 14px); }
+
+        /* ═══════════ ШАПКА ═══════════ */
+        .site-header {
             position: sticky; top: 0; z-index: 100;
+            background: var(--bg-header);
+            -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: box-shadow .25s ease, background-color .3s ease, border-color .3s ease;
         }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; gap: 16px; }
-        .header-right { display: flex; align-items: center; gap: 18px; }
-        
-        /* Логотип: убран gap, добавлен margin-right картинке */
-        .logo { 
-            display: flex; 
-            align-items: center; 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            color: var(--accent); 
-            letter-spacing: -0.5px; 
-            transition: color 0.3s ease; 
-            text-decoration: none; 
+        .site-header.is-scrolled { box-shadow: var(--shadow-1); }
+        .header-inner {
+            min-height: var(--header-h);
+            display: flex; align-items: center; justify-content: space-between; gap: 18px;
         }
+        .logo {
+            display: inline-flex; align-items: center;
+            font-size: 1.4rem; font-weight: 800; letter-spacing: -.5px;
+            color: var(--accent); text-decoration: none; transition: color .3s ease, opacity .2s ease;
+        }
+        .logo:hover { opacity: .88; }
         .logo-img {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            flex-shrink: 0;
-            object-fit: contain;
-            border-radius: 8px;
-            background: #ffffff;
-            padding: 2px;
-            display: block;
-            margin-right: 10px;
+            width: 38px; height: 38px; min-width: 38px; flex-shrink: 0;
+            object-fit: contain; border-radius: 8px; background: #fff; padding: 2px;
+            display: block; margin-right: 10px;
         }
         .logo span { color: var(--orange); }
-        
-        .header-contacts { text-align: right; }
-        .header-contacts a { display: block; font-size: 1.2rem; font-weight: 700; color: var(--accent); text-decoration: none; transition: color 0.25s ease; }
-        .header-contacts a:hover { color: var(--accent-hover); }
-        .header-contacts small { color: var(--text-secondary); font-size: 0.85rem; }
-        .theme-toggle {
-            width: 44px; height: 44px; border-radius: 50%;
-            border: 1px solid var(--border);
-            background: var(--bg-card); color: var(--text);
-            font-size: 1.15rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
-            flex-shrink: 0; line-height: 1;
-        }
-        .theme-toggle:hover { transform: scale(1.08); border-color: var(--accent); }
-        .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+        .main-nav ul { list-style: none; display: flex; gap: 4px; flex-wrap: wrap; }
+        .main-nav a {
+            display: block; padding: 8px 12px; border-radius: 8px;
+            color: var(--text-body); text-decoration: none;
+            font-size: .93rem; font-weight: 600;
+            transition: background .18s ease, color .18s ease;
+        }
+        .main-nav a:hover { background: var(--bg-soft); color: var(--accent); }
+        .main-nav a.active { background: var(--accent-soft); color: var(--accent); }
+
+        .header-right { display: flex; align-items: center; gap: 14px; }
+        .header-contacts { text-align: right; line-height: 1.35; }
+        .header-contacts a.tel {
+            display: block; font-size: 1.1rem; font-weight: 800;
+            color: var(--accent); text-decoration: none; transition: color .2s ease;
+        }
+        .header-contacts a.tel:hover { color: var(--orange); }
+        .header-contacts small { display: flex; align-items: center; justify-content: flex-end; gap: 6px; color: var(--text-secondary); font-size: .82rem; }
+
+        .theme-toggle, .burger {
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1px solid var(--border); background: var(--bg-card); color: var(--text);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; flex-shrink: 0;
+            transition: transform .25s var(--ease), border-color .25s ease, background-color .3s ease;
+        }
+        .theme-toggle:hover, .burger:hover { transform: scale(1.07); border-color: var(--accent); }
+        .theme-toggle .i-sun { display: none; }
+        [data-theme="dark"] .theme-toggle .i-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .i-moon { display: none; }
+        .burger { display: none; }
+        .burger .i-close { display: none; }
+        body.nav-open .burger .i-close { display: block; }
+        body.nav-open .burger .i-menu { display: none; }
+
+        /* Статус «открыто / закрыто» */
+        .status { display: inline-flex; align-items: center; gap: 7px; font-size: .8rem; font-weight: 700; }
+        .status .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: var(--text-muted); }
+        .status.is-open { color: var(--green-ok); }
+        .status.is-open .dot { background: var(--green-ok); box-shadow: 0 0 0 0 rgba(31, 157, 99, .55); animation: pulse 2.2s infinite; }
+        .status.is-closed { color: var(--text-muted); }
+        .status.on-dark { color: #a7f3d0; }
+        .status.on-dark.is-closed { color: var(--hero-sub); }
+        .status.on-dark.is-closed .dot { background: var(--hero-sub); }
+        @keyframes pulse {
+            70% { box-shadow: 0 0 0 9px rgba(31, 157, 99, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(31, 157, 99, 0); }
+        }
+
+        /* ═══════════ ГЕРОЙ ═══════════ */
         .hero {
+            position: relative; overflow: hidden; color: var(--hero-text);
             background: linear-gradient(135deg, var(--hero-from) 0%, var(--hero-to) 100%);
-            color: var(--hero-text); padding: 90px 0; text-align: center;
-            position: relative; overflow: hidden;
+            padding: 92px 0 128px;
+            text-align: center;
         }
         .hero::after {
-            content: ""; position: absolute; inset: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(243, 156, 18, 0.15), transparent 55%);
-            pointer-events: none;
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(circle at 82% 12%, rgba(243, 156, 18, .20), transparent 50%),
+                radial-gradient(circle at 10% 96%, rgba(255, 255, 255, .10), transparent 42%);
         }
-        .hero h1 { font-size: 2.6rem; margin-bottom: 18px; font-weight: 800; line-height: 1.25; position: relative; }
-        .hero p { font-size: 1.15rem; color: var(--hero-sub); margin-bottom: 34px; max-width: 620px; margin-left: auto; margin-right: auto; position: relative; }
+        .hero-paw {
+            position: absolute; right: 4%; bottom: 6%; z-index: 0;
+            width: 320px; height: 320px; color: #fff; opacity: .055; pointer-events: none;
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero-inner { max-width: 860px; margin: 0 auto; }
+        .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 22px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 7px 13px; border-radius: 999px;
+            background: var(--hero-glass); border: 1px solid var(--hero-glass-border);
+            font-size: .82rem; font-weight: 600; color: var(--hero-sub);
+        }
+        .badge .icon { font-size: .95em; color: var(--orange); }
+        .hero h1 {
+            font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; line-height: 1.15;
+            letter-spacing: -.7px; margin: 0 auto 18px; text-wrap: balance;
+        }
+        .h1-kicker {
+            display: block; font-size: .36em; font-weight: 700; letter-spacing: .14em;
+            text-transform: uppercase; color: var(--hero-sub); margin-bottom: 12px;
+        }
+        .hero h1 em { font-style: normal; color: var(--orange); }
+        .hero-sub {
+            font-size: 1.08rem; color: var(--hero-sub); margin: 0 auto 30px;
+            max-width: 54ch;
+        }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
-        .btn { display: inline-block; padding: 15px 34px; border-radius: 10px; font-size: 1rem; font-weight: 700; text-decoration: none; cursor: pointer; border: none; transition: all 0.25s ease; }
-        .btn-white { background: var(--orange); color: #ffffff; box-shadow: 0 6px 18px rgba(243, 156, 18, 0.35); }
-        .btn-white:hover { background: var(--orange-hover); transform: translateY(-2px); }
-        .btn-outline { background: transparent; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.7); margin-left: 10px; }
-        .btn-outline:hover { background: rgba(255, 255, 255, 0.12); border-color: #ffffff; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+            padding: 14px 28px; border-radius: 12px; border: 2px solid transparent;
+            font-size: 1rem; font-weight: 700; text-decoration: none; cursor: pointer;
+            transition: transform .2s var(--ease), background .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .btn .icon { font-size: 1.1em; }
+        .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 8px 22px rgba(243, 156, 18, .35); }
+        .btn-primary:hover { background: var(--orange-hover); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(243, 156, 18, .45); }
+        .btn-ghost { background: rgba(255, 255, 255, .08); color: #fff; border-color: rgba(255, 255, 255, .55); }
+        .btn-ghost:hover { background: rgba(255, 255, 255, .16); border-color: #fff; color: #fff; transform: translateY(-2px); }
+        .btn-quiet { background: var(--accent-soft); color: var(--accent); }
+        .btn-quiet:hover { background: var(--bg-soft); color: var(--accent-hover); }
+        .btn-sm { padding: 10px 18px; font-size: .9rem; border-radius: 10px; }
 
-        section { padding: 75px 0; transition: background-color 0.3s ease; }
+        /* Полоса фактов под героем */
+        .facts { position: relative; z-index: 5; margin-top: -66px; }
+        .facts-inner {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 18px; box-shadow: var(--shadow-3); padding: 6px 4px;
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .fact {
+            display: flex; gap: 12px; align-items: center;
+            padding: 20px 22px; border-right: 1px solid var(--border);
+        }
+        .fact:last-child { border-right: none; }
+        .fact .f-icon {
+            width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-soft); color: var(--accent);
+        }
+        .fact:nth-child(even) .f-icon { background: var(--orange-soft); color: var(--orange); }
+        [data-theme="dark"] .fact:nth-child(even) .f-icon { background: #2a2417; }
+        .fact b { display: block; font-size: .95rem; color: var(--text); }
+        .fact small { display: block; color: var(--text-secondary); font-size: .82rem; }
+        .fact .status { margin-top: 2px; font-size: .78rem; }
+
+        /* ═══════════ СЕКЦИИ ═══════════ */
+        section { padding: 78px 0; transition: background-color .3s ease; scroll-margin-top: calc(var(--header-h) + 14px); }
         section.alt { background: var(--bg-alt); }
-        h2 { font-size: 2rem; text-align: center; margin-bottom: 12px; color: var(--accent); font-weight: 800; transition: color 0.3s ease; }
-        .subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 50px; font-size: 1.05rem; }
+        .section-head { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+        .eyebrow {
+            display: inline-block; margin-bottom: 12px; padding: 5px 12px; border-radius: 999px;
+            background: var(--accent-soft); color: var(--accent);
+            font-size: .74rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+        }
+        h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); font-weight: 800; color: var(--accent); line-height: 1.25; letter-spacing: -.4px; margin-bottom: 10px; transition: color .3s ease; }
+        .subtitle { color: var(--text-secondary); font-size: 1.02rem; }
 
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; }
+        /* Преимущества */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
         .feature-card {
-            background: var(--bg-card); padding: 32px 28px; border-radius: 14px;
-            box-shadow: var(--shadow-card); text-align: center;
-            border: 1px solid var(--border);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+            background: var(--bg-card); padding: 28px 24px; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow-1);
+            transition: transform .25s var(--ease), box-shadow .25s ease, background-color .3s ease, border-color .3s ease;
         }
-        .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
-        .feature-card .icon { font-size: 2.6rem; margin-bottom: 14px; }
-        .feature-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--accent); font-weight: 700; transition: color 0.3s ease; }
-        .feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); }
+        .feature-icon {
+            width: 52px; height: 52px; border-radius: 14px; margin-bottom: 16px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-soft); color: var(--accent); font-size: 1.5rem;
+        }
+        .feature-card:nth-child(even) .feature-icon { background: var(--orange-soft); color: var(--orange); }
+        [data-theme="dark"] .feature-card:nth-child(even) .feature-icon { background: #2a2417; }
+        .feature-card h3 { font-size: 1.08rem; margin-bottom: 8px; color: var(--text); font-weight: 700; }
+        .feature-card p { color: var(--text-secondary); font-size: .93rem; }
+        .feature-card .rating-line { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+        .feature-card .big-num { font-size: 1.9rem; font-weight: 800; color: var(--accent); line-height: 1; }
+        .stars { display: inline-flex; gap: 2px; color: var(--orange); font-size: .85rem; }
 
-        .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px; }
+        /* Врачи */
+        .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
         .doctor-card {
-            background: var(--bg-card); padding: 32px 24px; border-radius: 14px;
-            box-shadow: var(--shadow-card); text-align: center;
-            border: 1px solid var(--border);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.3s ease, border-color 0.3s ease;
+            display: flex; gap: 18px; align-items: center; text-align: left;
+            background: var(--bg-card); padding: 24px; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow-1);
+            transition: transform .25s var(--ease), box-shadow .25s ease, background-color .3s ease, border-color .3s ease;
         }
-        .doctor-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
-        .doctor-card .avatar { font-size: 3.5rem; margin-bottom: 16px; }
-        .doctor-card h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--accent); font-weight: 700; transition: color 0.3s ease; }
-        .doctor-card p { color: var(--text-secondary); font-size: 0.92rem; }
+        .doctor-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); }
+        .doctor-avatar {
+            width: 84px; height: 84px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800; color: #fff;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .14);
+        }
+        [data-theme="dark"] .doctor-avatar { color: #06201b; }
+        .doctor-card h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text); }
+        .doctor-card .spec { color: var(--accent); font-weight: 700; font-size: .88rem; margin-bottom: 12px; }
+        .avatar-dot {
+            width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 255, 255, .16); border: 1px solid var(--hero-glass-border);
+            color: #fff; font-weight: 800; font-size: .84rem;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        /* Услуги */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
         .service-card {
-            background: var(--bg-card); padding: 26px 24px; border-radius: 14px;
-            box-shadow: var(--shadow-card); border-left: 5px solid var(--accent);
-            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
+            position: relative; display: flex; gap: 16px;
+            background: var(--bg-card); padding: 24px; border-radius: var(--radius);
+            border: 1px solid var(--border); border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow-1);
+            transition: transform .25s var(--ease), border-color .25s ease, box-shadow .25s ease, background-color .3s ease;
         }
-        .service-card:hover { transform: translateX(4px); border-left-color: var(--orange); }
-        .service-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--accent); font-weight: 700; transition: color 0.3s ease; }
-        .service-card p { color: var(--text-secondary); font-size: 0.92rem; }
+        .service-card:hover { transform: translateX(5px); border-left-color: var(--orange); box-shadow: var(--shadow-2); }
+        .service-card .s-icon {
+            font-size: 1.45rem; width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-soft); color: var(--accent);
+        }
+        .service-card h3 { font-size: 1.03rem; margin-bottom: 6px; color: var(--text); font-weight: 700; }
+        .service-card p { color: var(--text-secondary); font-size: .9rem; }
 
-        .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
-        .contact-item { display: flex; gap: 15px; margin-bottom: 22px; }
-        .contact-item .icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
-        .contact-item strong { display: block; margin-bottom: 4px; color: var(--accent); font-weight: 700; font-size: 0.95rem; transition: color 0.3s ease; }
-        .contact-item a { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.25s ease; }
+        /* Цены */
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+        .price-group {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 24px 26px; box-shadow: var(--shadow-1);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .price-group > h3 {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 1.02rem; color: var(--accent); font-weight: 800;
+            padding-bottom: 12px; margin-bottom: 6px; border-bottom: 2px solid var(--border);
+        }
+        .price-list { list-style: none; }
+        .price-list li {
+            display: flex; align-items: baseline; gap: 10px;
+            padding: 9px 0; border-bottom: 1px dashed var(--border);
+            font-size: .93rem; color: var(--text-body);
+        }
+        .price-list li:last-child { border-bottom: none; }
+        .price-list li span { flex: 1; }
+        .price-list li b { color: var(--text); font-weight: 800; white-space: nowrap; }
+        .price-note {
+            margin-top: 26px; padding: 16px 20px; border-radius: 12px;
+            background: var(--bg-soft); border-left: 4px solid var(--orange);
+            color: var(--text-secondary); font-size: .9rem;
+        }
+
+        /* Шаги */
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; counter-reset: step; }
+        .step {
+            position: relative; background: var(--bg-card); padding: 28px 22px 24px;
+            border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-1);
+        }
+        .step::before {
+            counter-increment: step; content: counter(step);
+            position: absolute; top: -16px; left: 22px;
+            width: 34px; height: 34px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--orange); color: #fff; font-weight: 800; font-size: .95rem;
+            box-shadow: 0 6px 16px rgba(243, 156, 18, .35);
+        }
+        .step h3 { font-size: 1rem; margin-bottom: 6px; color: var(--text); }
+        .step p { color: var(--text-secondary); font-size: .9rem; }
+
+        /* Отзывы */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+        .review-card {
+            display: flex; flex-direction: column; gap: 12px;
+            background: var(--bg-card); padding: 26px; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow-1);
+            transition: transform .25s var(--ease), box-shadow .25s ease;
+        }
+        .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+        .review-head { display: flex; align-items: center; gap: 12px; }
+        .review-head .avatar-dot { background: var(--accent-soft); color: var(--accent); border-color: var(--border); }
+        .review-head b { display: block; font-size: .98rem; color: var(--text); }
+        .review-head small { color: var(--text-muted); font-size: .8rem; }
+        .review-card p { color: var(--text-body); font-size: .93rem; flex: 1; }
+        .reviews-link { text-align: center; margin-top: 30px; }
+        .reviews-link a { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-decoration: none; }
+        .reviews-link a:hover { color: var(--orange); }
+
+        /* FAQ */
+        .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+        .faq-item {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; overflow: hidden; transition: border-color .2s ease, background-color .3s ease;
+        }
+        .faq-item[open] { border-color: var(--border-strong); }
+        .faq-item summary {
+            list-style: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 17px 20px; font-weight: 700; font-size: .98rem; color: var(--text);
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary .icon { font-size: 1.2rem; color: var(--accent); transition: transform .25s ease; }
+        .faq-item[open] summary .icon { transform: rotate(180deg); }
+        .faq-item .faq-body { padding: 0 20px 18px; color: var(--text-secondary); font-size: .93rem; }
+        .faq-item .faq-body a { color: var(--accent); font-weight: 700; }
+
+        /* Контакты */
+        .contacts-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; align-items: start; }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+        .contact-item .c-icon {
+            width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; font-size: 1.25rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-soft); color: var(--accent);
+        }
+        .contact-item strong { display: block; margin-bottom: 3px; color: var(--text); font-size: .93rem; }
+        .contact-item p, .contact-item a { color: var(--text-secondary); font-size: .95rem; text-decoration: none; }
+        .contact-item a { color: var(--accent); font-weight: 700; }
         .contact-item a:hover { color: var(--orange); }
-        .contact-item p { color: var(--text); }
-
-        .map-wrapper { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-map); border: 1px solid var(--border); transition: border-color 0.3s ease; background: var(--bg-alt); }
-        .map-wrapper iframe { display: block; width: 100%; height: 400px; border: 0; }
-
-        .form-wrapper {
-            max-width: 700px; margin: 0 auto;
-            background: var(--bg-card); padding: 12px;
-            border-radius: 14px; box-shadow: var(--shadow-form);
-            border: 1px solid var(--border);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+        .contacts-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+        .map-wrapper {
+            border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border); box-shadow: var(--shadow-2); background: var(--bg-alt);
         }
-        .form-wrapper iframe { display: block; width: 100%; border: none; border-radius: 10px; min-height: 750px; background: var(--bg-card); }
-        .form-hint { text-align: center; margin-top: 18px; color: var(--text-secondary); font-size: 0.95rem; }
-        .form-hint a { color: var(--accent); font-weight: 700; text-decoration: none; }
-        .form-hint a:hover { color: var(--orange); }
-        .privacy-note { text-align: center; margin-top: 14px; color: var(--text-secondary); font-size: 0.85rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .privacy-note a { color: var(--accent); font-weight: 600; text-decoration: underline; }
-        .privacy-note a:hover { color: var(--orange); }
+        .map-wrapper iframe { display: block; width: 100%; height: 440px; border: 0; }
+        .map-note { padding: 12px 16px; font-size: .85rem; color: var(--text-secondary); border-top: 1px solid var(--border); background: var(--bg-card); }
 
-        footer { background: var(--bg-footer); color: var(--footer-text); padding: 48px 0 24px; text-align: center; transition: background-color 0.3s ease; }
-        footer .logo { color: #ffffff; margin-bottom: 12px; justify-content: center; }
+        /* ═══════════ ФУТЕР ═══════════ */
+        footer { background: var(--bg-footer); color: var(--footer-text); padding: 52px 0 26px; transition: background-color .3s ease; }
+        .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 34px; text-align: left; }
+        footer .logo { color: #fff; margin-bottom: 12px; }
         footer .logo span { color: var(--orange); }
-        footer a { color: var(--orange); text-decoration: none; font-weight: 600; }
-        footer a:hover { color: var(--orange-hover); text-decoration: underline; }
-        .footer-bottom { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--footer-border); font-size: 0.85rem; color: var(--footer-muted); transition: border-color 0.3s ease; }
-        .footer-bottom a { color: var(--orange); }
-
-        .dev-credit {
-            margin-top: 18px;
-            font-size: 0.72rem;
-            color: var(--footer-muted);
-            opacity: 0.65;
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
+        .footer-about { font-size: .9rem; line-height: 1.6; max-width: 42ch; }
+        .footer-col h3 {
+            font-size: .76rem; text-transform: uppercase; letter-spacing: .1em;
+            color: var(--footer-muted); margin-bottom: 14px; font-weight: 800;
         }
-        .dev-credit a { color: inherit; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
-        .dev-credit a:hover { color: var(--orange); }
+        .footer-col ul { list-style: none; display: grid; gap: 8px; }
+        .footer-col a, .footer-col p { color: var(--footer-text); font-size: .9rem; text-decoration: none; }
+        .footer-col a:hover { color: var(--orange); text-decoration: underline; }
+        .footer-bottom {
+            margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--footer-border);
+            display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center;
+            font-size: .84rem; color: var(--footer-muted);
+        }
+        .footer-bottom a { color: var(--orange); text-decoration: none; }
+        .footer-bottom a:hover { text-decoration: underline; }
+        .dev-credit { font-size: .74rem; color: var(--footer-muted); opacity: .8; }
+        .dev-credit a { color: inherit; font-weight: 600; }
 
+        /* ═══════════ ПОВЕРХ КОНТЕНТА ═══════════ */
+        #toTop {
+            position: fixed; right: 22px; bottom: 22px; z-index: 200;
+            width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+            background: var(--orange); color: #fff; font-size: 1.2rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 22px rgba(243, 156, 18, .4);
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: opacity .25s ease, visibility .25s ease, transform .25s var(--ease), background .2s ease;
+        }
+        #toTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        #toTop:hover { background: var(--orange-hover); }
+
+        .mobile-bar {
+            position: fixed; left: 0; right: 0; bottom: 0; z-index: 210;
+            display: none; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+            background: var(--bg-header);
+            -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+        }
+        .mobile-bar .btn { flex: 1; padding: 12px 10px; font-size: .92rem; }
+
+        .cookie {
+            position: fixed; left: 50%; bottom: 22px; z-index: 220;
+            transform: translateX(-50%) translateY(140%);
+            width: min(560px, calc(100% - 28px));
+            display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 16px 18px; box-shadow: var(--shadow-3);
+            transition: transform .45s var(--ease);
+        }
+        .cookie.show { transform: translateX(-50%) translateY(0); }
+        .cookie p { font-size: .85rem; color: var(--text-secondary); flex: 1 1 260px; }
+        .cookie a { color: var(--accent); font-weight: 700; }
+        .cookie .c-actions { display: flex; gap: 8px; }
+
+        /* Появление при прокрутке — скрыто только если JS работает */
+        .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s var(--ease); }
+        .js .reveal.is-visible { opacity: 1; transform: none; }
+
+        /* ═══════════ АДАПТИВ ═══════════ */
+        @media (max-width: 1040px) {
+            .main-nav ul { gap: 0; }
+            .main-nav a { padding: 8px 9px; font-size: .87rem; }
+            .facts-inner { grid-template-columns: 1fr 1fr; }
+            .fact:nth-child(2) { border-right: none; }
+            .fact { border-bottom: 1px solid var(--border); }
+            .fact:nth-child(3), .fact:nth-child(4) { border-bottom: none; }
+            .contacts-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 900px) {
+            .burger { display: flex; }
+            .main-nav {
+                position: fixed; top: var(--header-h); left: 0; right: 0; z-index: 99;
+                background: var(--bg-header);
+                -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--border);
+                max-height: 0; overflow: hidden; transition: max-height .35s var(--ease);
+            }
+            body.nav-open .main-nav { max-height: 78vh; overflow-y: auto; box-shadow: var(--shadow-2); }
+            .main-nav ul { flex-direction: column; padding: 10px 14px 16px; }
+            .main-nav a { padding: 12px 14px; font-size: 1rem; border-bottom: 1px solid var(--border); border-radius: 8px; }
+            .main-nav li:last-child a { border-bottom: none; }
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .contacts-grid { grid-template-columns: 1fr; gap: 30px; }
-            .header-inner { flex-direction: column; gap: 12px; text-align: center; }
-            .header-right { flex-direction: column; gap: 10px; }
-            .header-contacts { text-align: center; }
-            .btn-outline { margin-left: 0; margin-top: 10px; }
-            section { padding: 55px 0; }
-            h2 { font-size: 1.6rem; }
-            .form-wrapper iframe { min-height: 850px; }
+            :root { --header-h: 64px; }
+            section { padding: 54px 0; }
+            .hero { padding: 60px 0 96px; }
+            .hero-paw { width: 220px; height: 220px; right: -30px; bottom: 2%; }
+            .facts { margin-top: -50px; }
+            .header-contacts { display: none; }
+            body { padding-bottom: 74px; }
+            .mobile-bar { display: flex; }
+            .cookie { bottom: calc(84px + env(safe-area-inset-bottom)); }
+            #toTop { bottom: 84px; right: 14px; width: 44px; height: 44px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+            .footer-bottom { justify-content: flex-start; }
+            .doctor-card { flex-direction: column; text-align: center; align-items: center; }
+        }
+        @media (max-width: 520px) {
+            .facts-inner { grid-template-columns: 1fr; }
+            .fact { border-right: none !important; border-bottom: 1px solid var(--border); }
+            .fact:last-child { border-bottom: none; }
+            .hero .btn { width: 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+            .js .reveal { opacity: 1; transform: none; }
+        }
+        @media print {
+            .site-header, .mobile-bar, .cookie, #toTop, .map-wrapper, .contacts-cta, .facts { display: none !important; }
+            body, section { background: #fff !important; color: #000 !important; padding: 12px 0; }
+            h2 { color: #000; }
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "@id": "https://vet-aspect.ru/#clinic",
+      "name": "Ветеринарная клиника «ВетАспект»",
+      "alternateName": "ВетАспект",
+      "url": "https://vet-aspect.ru/",
+      "logo": "https://vet-aspect.ru/logo.png",
+      "image": "https://vet-aspect.ru/logo.png",
+      "description": "Ветеринарная клиника в Ногинске: терапия, хирургия, вакцинация, стоматология, лабораторная диагностика и выезд на дом.",
+      "telephone": "+7 (925) 716-43-39",
+      "email": "Vet-klinika-5@mail.ru",
+      "priceRange": "₽₽",
+      "currenciesAccepted": "RUB",
+      "paymentAccepted": "Наличные, банковская карта, QR-код",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Юбилейная, 5, 1 этаж",
+        "addressLocality": "Ногинск",
+        "postalCode": "142407",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 55.836145, "longitude": 38.399131 },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "bestRating": "5", "worstRating": "1" },
+      "employee": [
+        { "@type": "Person", "name": "Гаргалык Сергей Степанович", "jobTitle": "Ветеринарный врач" },
+        { "@type": "Person", "name": "Финк Сергей Викторович", "jobTitle": "Ветеринарный врач" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ветеринарные услуги",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Терапия" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Хирургия" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Вакцинация" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Стоматология" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Диагностика" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Вызов врача на дом" } }
+        ]
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Как записаться на приём?", "acceptedAnswer": { "@type": "Answer", "text": "Позвоните нам по телефону +7 (925) 716-43-39. Работаем ежедневно с 10:00 до 20:00." } },
+        { "@type": "Question", "name": "С какими животными вы работаете?", "acceptedAnswer": { "@type": "Answer", "text": "Кошки, собаки и другие домашние животные." } },
+        { "@type": "Question", "name": "Когда будут готовы анализы?", "acceptedAnswer": { "@type": "Answer", "text": "Результат анализов будет готов в течение суток." } },
+        { "@type": "Question", "name": "Какие операции вы делаете?", "acceptedAnswer": { "@type": "Answer", "text": "Плановые и экстренные операции, кастрация, стерилизация." } },
+        { "@type": "Question", "name": "Как можно оплатить приём?", "acceptedAnswer": { "@type": "Answer", "text": "Картой, наличными или по QR-коду." } },
+        { "@type": "Question", "name": "Выезжаете ли вы на дом?", "acceptedAnswer": { "@type": "Answer", "text": "Да, выезд ветеринарного врача по Ногинску и району." } }
+      ]
+    }
+    </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
 
-    <header>
-        <div class="container header-inner">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Логотип ВетАспект" class="logo-img">
-                Вет<span>Аспект</span>
-            </a>
-            <div class="header-right">
-                <div class="header-contacts">
-                    <a href="tel:+79257164339">+7 (925) 716-43-39</a>
-                    <small>Ежедневно 10:00–20:00</small>
-                </div>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" title="Переключить тему">🌙</button>
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+        <a href="index.html" class="logo" aria-label="ВетАспект — на главную">
+            <img src="logo.png" alt="Логотип ВетАспект" class="logo-img" width="38" height="38" onerror="this.style.display='none'">
+            Вет<span>Аспект</span>
+        </a>
+
+        <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+            <ul>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#doctors">Врачи</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#faq">Вопросы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <div class="header-contacts">
+                <a class="tel" href="tel:+79257164339">+7 (925) 716-43-39</a>
+                <small><span class="status" id="statusHeader"></span></small>
             </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">
+                <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+            </button>
+            <button id="burger" class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mainNav">
+                <svg class="icon i-menu" aria-hidden="true"><use href="#i-menu"></use></svg>
+                <svg class="icon i-close" aria-hidden="true"><use href="#i-close"></use></svg>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
 
+<main id="main">
+
+    <!-- ═══ ГЕРОЙ ═══ -->
     <section class="hero">
+        <svg class="icon fill hero-paw" aria-hidden="true"><use href="#i-paw"></use></svg>
         <div class="container">
-            <h1>Ветеринарная клиника в Ногинске</h1>
-            <p>Профессиональная помощь вашим питомцам. Терапия, хирургия, диагностика, вакцинация.</p>
-            <a href="#appointment" class="btn btn-white">Записаться на приём</a>
-            <a href="tel:+79257164339" class="btn btn-outline">Позвонить</a>
+            <div class="hero-inner">
+                <div class="hero-badges">
+                    <span class="badge"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Ногинск, ул. Юбилейная, 5</span>
+                    <span class="badge"><svg class="icon fill" aria-hidden="true"><use href="#i-star"></use></svg>4,7 на Яндекс.Картах</span>
+                </div>
+
+                <h1>
+                    <span class="h1-kicker">Ветеринарная клиника</span>
+                    <em>«ВетАспект»</em> в Ногинске
+                </h1>
+
+                <p class="hero-sub">Профессиональная помощь вашим питомцам. Терапия, хирургия, диагностика, вакцинация.</p>
+
+                <div class="hero-cta">
+                    <a href="tel:+79257164339" class="btn btn-primary">
+                        <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+                        Записаться по телефону
+                    </a>
+                    <a href="#contacts" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>
+                        Как нас найти
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section>
+    <!-- ═══ ПОЛОСА ФАКТОВ ═══ -->
+    <div class="facts">
         <div class="container">
-            <h2>Почему выбирают нас</h2>
-            <p class="subtitle">Забота о здоровье ваших питомцев — наша главная задача</p>
+            <div class="facts-inner">
+                <div class="fact">
+                    <span class="f-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span>
+                    <div>
+                        <b>Ежедневно 10:00 — 20:00</b>
+                        <span class="status" id="statusStrip"></span>
+                    </div>
+                </div>
+                <div class="fact">
+                    <span class="f-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
+                    <div>
+                        <b>ул. Юбилейная, 5</b>
+                        <small>Ногинск, 1 этаж, 142407</small>
+                    </div>
+                </div>
+                <div class="fact">
+                    <span class="f-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg></span>
+                    <div>
+                        <b>Выезд на дом</b>
+                        <small>по Ногинску и району</small>
+                    </div>
+                </div>
+                <div class="fact">
+                    <span class="f-icon"><svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg></span>
+                    <div>
+                        <b>Оплата</b>
+                        <small>картой, наличными, QR-код</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ ПРЕИМУЩЕСТВА ═══ -->
+    <section id="advantages">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Преимущества</span>
+                <h2>Почему выбирают нас</h2>
+                <p class="subtitle">Забота о здоровье ваших питомцев — наша главная задача</p>
+            </div>
+
             <div class="features">
-                <div class="feature-card">
-                    <div class="icon">⭐</div>
+                <article class="feature-card reveal">
+                    <div class="rating-line">
+                        <span class="big-num">4,7</span>
+                        <span class="stars" aria-label="Рейтинг 4,7 из 5">
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                        </span>
+                    </div>
                     <h3>Высокий рейтинг</h3>
                     <p>4,7 из 5 на Яндекс.Картах. Более 4,5 на Zoon.ru.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🩺</div>
+                </article>
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-steth"></use></svg></div>
                     <h3>Опытные специалисты</h3>
                     <p>Терапевты, хирурги — полный спектр помощи.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🏥</div>
+                </article>
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg></div>
                     <h3>Современное оборудование</h3>
                     <p>Диагностика, лабораторные исследования.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">🚗</div>
+                </article>
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg></div>
                     <h3>Выезд на дом</h3>
                     <p>Оказываем помощь на дому, если питомцу сложно добраться.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="alt">
+    <!-- ═══ ВРАЧИ ═══ -->
+    <section id="doctors" class="alt">
         <div class="container">
-            <h2>Наши врачи</h2>
-            <p class="subtitle">Специалисты, которые заботятся о ваших питомцах</p>
+            <div class="section-head reveal">
+                <span class="eyebrow">Команда</span>
+                <h2>Наши врачи</h2>
+                <p class="subtitle">Специалисты, которые заботятся о ваших питомцах</p>
+            </div>
+
             <div class="doctors-grid">
-                <div class="doctor-card">
-                    <div class="avatar">👨‍⚕️</div>
-                    <h3>Гаргалык Сергей Степанович</h3>
-                    <p>Ветеринарный врач</p>
-                </div>
-                <div class="doctor-card">
-                    <div class="avatar">👨‍⚕️</div>
-                    <h3>Финк Сергей Викторович</h3>
-                    <p>Ветеринарный врач</p>
-                </div>
+                <article class="doctor-card reveal">
+                    <div class="doctor-avatar" aria-hidden="true">ГС</div>
+                    <div>
+                        <h3>Гаргалык Сергей Степанович</h3>
+                        <p class="spec">Ветеринарный врач</p>
+                        <a href="tel:+79257164339" class="btn btn-quiet btn-sm">Записаться: +7 (925) 716-43-39</a>
+                    </div>
+                </article>
+
+                <article class="doctor-card reveal">
+                    <div class="doctor-avatar" aria-hidden="true">ФС</div>
+                    <div>
+                        <h3>Финк Сергей Викторович</h3>
+                        <p class="spec">Ветеринарный врач</p>
+                        <a href="tel:+79257164339" class="btn btn-quiet btn-sm">Записаться: +7 (925) 716-43-39</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section>
+    <!-- ═══ УСЛУГИ ═══ -->
+    <section id="services">
         <div class="container">
-            <h2>Наши услуги</h2>
-            <p class="subtitle">Полный спектр ветеринарной помощи</p>
+            <div class="section-head reveal">
+                <span class="eyebrow">Услуги</span>
+                <h2>Наши услуги</h2>
+                <p class="subtitle">Полный спектр ветеринарной помощи</p>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>🩺 Терапия</h3>
-                    <p>Диагностика и лечение внутренних заболеваний у кошек, собак и других животных.</p>
-                </div>
-                <div class="service-card">
-                    <h3>💉 Вакцинация</h3>
-                    <p>Плановые прививки, оформление ветеринарных паспортов.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🔪 Хирургия</h3>
-                    <p>Плановые и экстренные операции, кастрация, стерилизация.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🦷 Базовая стоматология</h3>
-                    <p>Удаление зубного камня, лечение заболеваний ротовой полости.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🔬 Диагностика</h3>
-                    <p>Анализы крови, лабораторные исследования.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🏠 Вызов на дом</h3>
-                    <p>Выезд ветеринарного врача по Ногинску и району.</p>
-                </div>
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-steth"></use></svg></div>
+                    <div>
+                        <h3>Терапия</h3>
+                        <p>Диагностика и лечение внутренних заболеваний у кошек, собак и других животных.</p>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-syringe"></use></svg></div>
+                    <div>
+                        <h3>Вакцинация</h3>
+                        <p>Плановые прививки, оформление ветеринарных паспортов.</p>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-scalpel"></use></svg></div>
+                    <div>
+                        <h3>Хирургия</h3>
+                        <p>Плановые и экстренные операции, кастрация, стерилизация.</p>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-tooth"></use></svg></div>
+                    <div>
+                        <h3>Базовая стоматология</h3>
+                        <p>Удаление зубного камня, лечение заболеваний ротовой полости.</p>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg></div>
+                    <div>
+                        <h3>Диагностика</h3>
+                        <p>Анализы крови, лабораторные исследования.</p>
+                    </div>
+                </article>
+
+                <article class="service-card reveal">
+                    <div class="s-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg></div>
+                    <div>
+                        <h3>Вызов на дом</h3>
+                        <p>Выезд ветеринарного врача по Ногинску и району.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="alt">
+    <!-- ═══ ЦЕНЫ ═══ -->
+    <section id="prices" class="alt">
         <div class="container">
-            <h2>Контакты</h2>
-            <p class="subtitle">Мы всегда рядом</p>
+            <div class="section-head reveal">
+                <span class="eyebrow">Стоимость</span>
+                <h2>Цены</h2>
+                <p class="subtitle">Итоговую стоимость врач называет после осмотра</p>
+            </div>
+
+            <div class="price-grid">
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-steth"></use></svg>Приём и консультация</h3>
+                    <ul class="price-list">
+                        <li><span>Первичный осмотр, составление плана лечения</span><b>от 800 ₽</b></li>
+                        <li><span>Повторный приём</span><b>от 500 ₽</b></li>
+                        <li><span>Консультация по результатам анализов</span><b>от 500 ₽</b></li>
+                        <li><span>Вызов врача на дом (по Ногинску)</span><b>от 1 500 ₽</b></li>
+                    </ul>
+                </div>
+
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-flask"></use></svg>Диагностика</h3>
+                    <ul class="price-list">
+                        <li><span>Общий анализ крови</span><b>от 700 ₽</b></li>
+                        <li><span>Биохимический анализ крови</span><b>от 1 200 ₽</b></li>
+                    </ul>
+                </div>
+
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-syringe"></use></svg>Вакцинация</h3>
+                    <ul class="price-list">
+                        <li><span>Российская комплексная вакцинация кошек/собак с бешенством</span><b>от 2000 ₽</b></li>
+			<li><span>Импортная комплексная вакцинация кошек/собак с бешенством</span><b>от 2300 ₽</b></li>
+                        <li><span>Вакцинация от бешенства</span><b>от 1000 ₽</b></li>
+                        <li><span>Оформление / продление ветпаспорта</span><b>от 150 ₽</b></li>
+                    </ul>
+                </div>
+
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-scalpel"></use></svg>Хирургия и стоматология</h3>
+                    <ul class="price-list">
+                        <li><span>Кастрация кота</span><b>от 3000 ₽</b></li>
+                        <li><span>Стерилизация кошки</span><b>от 4 500 ₽</b></li>
+                        <li><span>Стерилизация суки</span><b>от 7 000 ₽</b></li>
+                        <li><span>Ультразвуковая чистка зубов</span><b>от 3 500 ₽</b></li>
+                        <li><span>Удаление молочных / разрушенных зубов</span><b>от 600 ₽</b></li>
+                    </ul>
+                </div>
+
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>Процедуры</h3>
+                    <ul class="price-list">
+                        <li><span>Инъекция (в/м, п/к)</span><b>от 100 ₽</b></li>
+                        <li><span>Перевязка, обработка раны</span><b>от 400 ₽</b></li>
+                        <li><span>Стрижка когтей</span><b>от 300 ₽</b></li>
+                    </ul>
+                </div>
+
+                <div class="price-group reveal">
+                    <h3><svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg>Организационное</h3>
+                    <ul class="price-list">
+                        <li><span>Оплата: наличные, карта, QR-код</span><b>без комиссии</b></li>
+                        <li><span>История болезни и назначения</span><b>ведём бесплатно</b></li>
+                        <li><span>Напоминание о повторном приёме</span><b>по телефону</b></li>
+                        <li><span>Точную сумму уточняйте по телефону</span><b>+7 925 716-43-39</b></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="price-note reveal">
+                Цены указаны ориентировочно и не являются публичной офертой. Стоимость препаратов, наркоза
+                и сложных вмешательств рассчитывается индивидуально — врач назовёт её до начала лечения.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ КАК ПРОХОДИТ ПРИЁМ ═══ -->
+    <section id="steps">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Как это работает</span>
+                <h2>Как проходит приём</h2>
+            </div>
+
+            <div class="steps">
+                <article class="step reveal">
+                    <h3>Звонок</h3>
+                    <p>Звоните по номеру +7 (925) 716-43-39.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>Приём</h3>
+                    <p>Осматриваем питомца, обсуждаем назначения.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>Диагностика</h3>
+                    <p>При необходимости берём анализы крови.</p>
+                </article>
+                <article class="step reveal">
+                    <h3>Оплата</h3>
+                    <p>Картой, наличными или QR-кодом.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ОТЗЫВЫ ═══ -->
+    <section id="reviews" class="alt">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Отзывы</span>
+                <h2>Отзывы</h2>
+                <p class="subtitle">Полные отзывы — на Яндекс.Картах</p>
+            </div>
+
+            <div class="reviews-grid">
+                <article class="review-card reveal">
+                    <div class="review-head">
+                        <span class="avatar-dot" aria-hidden="true">И</span>
+                        <div>
+                            <b>Инна</b>
+                            <small>Яндекс.Карты</small>
+                        </div>
+                        <span class="stars" aria-label="Оценка 5 из 5">
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                        </span>
+                    </div>
+                    <p>«Приняли строго по времени, всё объяснили спокойным языком, лишнего не назначали».</p>
+                </article>
+
+                <article class="review-card reveal">
+                    <div class="review-head">
+                        <span class="avatar-dot" aria-hidden="true">А</span>
+                        <div>
+                            <b>Алексей</b>
+                            <small>Zoon.ru</small>
+                        </div>
+                        <span class="stars" aria-label="Оценка 5 из 5">
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                        </span>
+                    </div>
+                    <p>«Стерилизация прошла отлично: врач позвонил вечером узнать самочувствие питомца».</p>
+                </article>
+
+                <article class="review-card reveal">
+                    <div class="review-head">
+                        <span class="avatar-dot" aria-hidden="true">М</span>
+                        <div>
+                            <b>Мария</b>
+                            <small>2ГИС</small>
+                        </div>
+                        <span class="stars" aria-label="Оценка 4,5 из 5">
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                            <svg class="icon fill"><use href="#i-star"></use></svg>
+                        </span>
+                    </div>
+                    <p>«Вызывали врача на дом — приехал вовремя, взял анализы, всё рассказал по уходу».</p>
+                </article>
+            </div>
+
+            <p class="reviews-link reveal">
+                <!-- Замените на реальный адрес организации в Яндекс.Картах -->
+                <a href="https://yandex.ru/maps/?text=%D0%92%D0%B5%D1%82%D0%90%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9D%D0%BE%D0%B3%D0%B8%D0%BD%D1%81%D0%BA%20%D0%AE%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F%205" target="_blank" rel="noopener noreferrer">
+                    Все отзывы на Яндекс.Картах <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                </a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Вопросы и ответы</span>
+                <h2>Вопросы и ответы</h2>
+                <p class="subtitle">Если ответа нет в списке — позвоните, подскажем</p>
+            </div>
+
+            <div class="faq">
+                <details class="faq-item reveal" open>
+                    <summary>Как записаться на приём?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Позвоните нам по телефону <a href="tel:+79257164339">+7 (925) 716-43-39</a>. Работаем ежедневно с 10:00 до 20:00.</div>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>С какими животными вы работаете?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Кошки, собаки и другие домашние животные.</div>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>Когда будут готовы анализы?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Результат анализов будет готов в течение суток.</div>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>Какие операции вы делаете?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Плановые и экстренные операции, кастрация, стерилизация.</div>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>Как можно оплатить приём?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Картой, наличными или по QR-коду.</div>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>Выезжаете ли вы на дом?
+                        <svg class="icon" aria-hidden="true"><use href="#i-chev"></use></svg>
+                    </summary>
+                    <div class="faq-body">Да, выезд ветеринарного врача по Ногинску и району.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ КОНТАКТЫ ═══ -->
+    <section id="contacts" class="alt">
+        <span id="appointment" class="anchor-alias" aria-hidden="true"></span>
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Контакты</span>
+                <h2>Контакты</h2>
+                <p class="subtitle">Мы всегда рядом</p>
+            </div>
+
             <div class="contacts-grid">
-                <div>
+                <div class="reveal">
                     <div class="contact-item">
-                        <div class="icon">📍</div>
+                        <div class="c-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></div>
                         <div>
                             <strong>Адрес</strong>
                             <p>Московская область, г. Ногинск,<br>ул. Юбилейная, 5, 1 этаж, 142407</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">📞</div>
+                        <div class="c-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></div>
                         <div>
                             <strong>Телефон</strong>
                             <a href="tel:+79257164339">+7 (925) 716-43-39</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">✉️</div>
+                        <div class="c-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></div>
                         <div>
                             <strong>Email</strong>
                             <a href="mailto:Vet-klinika-5@mail.ru">Vet-klinika-5@mail.ru</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">🕐</div>
+                        <div class="c-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></div>
                         <div>
                             <strong>Режим работы</strong>
-                            <p>Ежедневно: 10:00 — 20:00</p>
+                            <p>Ежедневно: 10:00 — 20:00<br>
+                                <span class="status" id="statusContacts"></span>
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="icon">💳</div>
+                        <div class="c-icon"><svg class="icon" aria-hidden="true"><use href="#i-card"></use></svg></div>
                         <div>
                             <strong>Оплата</strong>
                             <p>Картой, наличными, QR-код</p>
                         </div>
                     </div>
+
+                    <div class="contacts-cta">
+                        <a href="tel:+79257164339" class="btn btn-primary btn-sm">
+                            <svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>
+                            Записаться по телефону
+                        </a>
+                        <a class="btn btn-quiet btn-sm" href="https://yandex.ru/maps/?rtext=~55.836145%2C38.399131&rtt=auto" target="_blank" rel="noopener noreferrer">Проложить маршрут</a>
+                    </div>
                 </div>
-                <div class="map-wrapper">
+
+                <div class="map-wrapper reveal">
                     <iframe src="https://yandex.ru/map-widget/v1/?ll=38.399131%2C55.836145&z=17&pt=38.399131,55.836145,pm2rdm"
-                            title="Карта: ВетАспект, ул. Юбилейная, 5"
-                            width="100%" height="400"
-                            frameborder="0"
-                            allowfullscreen="true"
+                            title="Карта: ВетАспект, Ногинск, ул. Юбилейная, 5"
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen></iframe>
+                    <div class="map-note">Ежедневно: 10:00 — 20:00</div>
                 </div>
             </div>
         </div>
     </section>
+</main>
 
-    <section id="appointment">
-        <div class="container">
-            <h2>Записаться на приём</h2>
-            <p class="subtitle">Оставьте заявку — мы свяжемся с вами</p>
-            <div class="form-wrapper">
-                <script src="https://forms.yandex.ru/_static/embed.js"></script>
-                <iframe src="https://forms.yandex.ru/u/6ab78c1684227c68be3ce25b?iframe=1"
-                        title="Форма записи на приём"
-                        frameborder="0"
-                        name="ya-form-6ab78c1684227c68be3ce25b"
-                        width="100%"
-                        height="750"
-                        loading="lazy">
-                </iframe>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo">
+                    <img src="logo.png" alt="" class="logo-img" width="38" height="38" onerror="this.style.display='none'">
+                    Вет<span>Аспект</span>
+                </div>
+                <p class="footer-about">Ветеринарная клиника в Ногинске. Терапия, хирургия, диагностика, вакцинация. Ежедневно 10:00–20:00.</p>
             </div>
-            <p class="privacy-note">
-                Отправляя заявку, вы соглашаетесь с
-                <a href="privacy.html">Политикой обработки персональных данных</a>.
-            </p>
-            <p class="form-hint">
-                Или позвоните нам: <a href="tel:+79257164339">+7 (925) 716-43-39</a>
-            </p>
+
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#doctors">Врачи</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#prices">Цены</a></li>
+                    <li><a href="#faq">Вопросы и ответы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <ul>
+                    <li><a href="tel:+79257164339">+7 (925) 716-43-39</a></li>
+                    <li><a href="mailto:Vet-klinika-5@mail.ru">Vet-klinika-5@mail.ru</a></li>
+                    <li><p>Ногинск, ул. Юбилейная, 5</p></li>
+                    <li><p>Ежедневно 10:00 — 20:00</p></li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Логотип ВетАспект" class="logo-img">
-                Вет<span>Аспект</span>
-            </div>
-            <p>ИП Гаргалык Сергей Степанович · ИНН 462202145330 · ОГРНИП 326508100047981</p>
-            <p style="margin-top: 4px;">ИП Финк Сергей Викторович · ИНН 341010540709 · ОГРН 326508100068487</p>
-            <p style="margin-top:12px;">
-                <a href="tel:+79257164339">+7 (925) 716-43-39</a> ·
-                <a href="mailto:Vet-klinika-5@mail.ru">Vet-klinika-5@mail.ru</a>
-            </p>
-            <div class="footer-bottom">
-                <p>© 2026 ВетАспект. Все права защищены.</p>
-                <p style="margin-top: 6px;">
-                    <a href="privacy.html">Политика конфиденциальности</a>
-                </p>
-            </div>
-            <p class="dev-credit">Команда разработчиков: <a href="https://vk.ru/microcel09" target="_blank" rel="noopener noreferrer">Михаил Близнюк</a></p>
+        <div class="footer-bottom">
+            <p>© <span id="year">2026</span> ВетАспект · ИП Гаргалык С. С. ИНН 462202145330 · ИП Финк С. В. ИНН 341010540709</p>
+            <p><a href="privacy.html">Политика конфиденциальности</a></p>
         </div>
-    </footer>
+        <p class="dev-credit">Команда разработчиков: <a href="https://vk.ru/microcel09" target="_blank" rel="noopener noreferrer">Михаил Близнюк</a></p>
+    </div>
+</footer>
 
-    <script>
-        (function () {
-            var btn = document.getElementById('theme-toggle');
-            var html = document.documentElement;
-            function isDark() { return html.getAttribute('data-theme') === 'dark'; }
-            function updateIcon() { btn.textContent = isDark() ? '☀️' : '🌙'; }
-            updateIcon();
-            btn.addEventListener('click', function () {
-                if (isDark()) {
-                    html.removeAttribute('data-theme');
-                    try { localStorage.setItem('theme', 'light'); } catch (e) {}
-                } else {
-                    html.setAttribute('data-theme', 'dark');
-                    try { localStorage.setItem('theme', 'dark'); } catch (e) {}
-                }
-                updateIcon();
+<div class="mobile-bar">
+    <a href="tel:+79257164339" class="btn btn-primary"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>Позвонить</a>
+    <a href="#contacts" class="btn btn-quiet"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Контакты</a>
+</div>
+
+<button id="toTop" type="button" aria-label="Наверх" title="Наверх">↑</button>
+
+<div class="cookie" id="cookieBox" role="dialog" aria-live="polite" aria-label="Использование cookie">
+    <p>Мы используем cookie и Яндекс.Метрику для улучшения сайта. Продолжая работу, вы соглашаетесь с <a href="privacy.html">Политикой обработки персональных данных</a>.</p>
+    <div class="c-actions">
+        <button type="button" class="btn btn-primary btn-sm" id="cookieOk">Принять</button>
+    </div>
+</div>
+
+<!-- ═══ SVG-СПРАЙТ ═══ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.5 4-2.2 1.6a12 12 0 0 0 6.5 6.5L17 12.9l4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.6 6.8 12 13l8.4-6.2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.4 2"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5C7 17 3.5 13.9 3.5 10.4A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 8.5 2.4c0 3.5-3.5 6.6-8.5 10.1z"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16.2" rx="4.8" ry="4"/><ellipse cx="5.6" cy="11.4" rx="2.1" ry="2.6"/><ellipse cx="9.4" cy="7.2" rx="2" ry="2.6"/><ellipse cx="14.6" cy="7.2" rx="2" ry="2.6"/><ellipse cx="18.4" cy="11.4" rx="2.1" ry="2.6"/></symbol>
+    <symbol id="i-steth" viewBox="0 0 24 24"><path d="M6 3v5a4 4 0 0 0 8 0V3M10 12v2a5 5 0 0 0 10 0v-1.2"/><circle cx="20" cy="10.6" r="2.2"/></symbol>
+    <symbol id="i-syringe" viewBox="0 0 24 24"><path d="M13.5 3.5l7 7M16.5 6.5 8 15l-4 1 1-4 8.5-8.5zM6.5 12.5l5 5M4 20l3-3"/></symbol>
+    <symbol id="i-scalpel" viewBox="0 0 24 24"><path d="M4.5 19.5 15 9l5-5-.5 6.5L10 20l-5.5-.5z"/></symbol>
+    <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 4c-2.2 0-3 .8-4.8.8S4.5 6.6 4.5 10c0 3 1.2 5.5 1.9 8 .5 1.8 1 3 2 3s1.3-1.6 1.7-3.4c.3-1.3.7-2.2 1.9-2.2s1.6.9 1.9 2.2c.4 1.8.7 3.4 1.7 3.4s1.5-1.2 2-3c.7-2.5 1.9-5 1.9-8 0-3.4-.9-4.4-2.7-5.2C15 4.8 14.2 4 12 4z"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-4.5 9A2.5 2.5 0 0 0 7.8 22h8.4a2.5 2.5 0 0 0 2.3-4L14 9V3M8 15h8"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M10 21v-6h4v6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6z"/><path d="M9 12l2.2 2.2 4-4.2"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5M7 19H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 15h10v6H7z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+</svg>
+
+<script>
+(function () {
+    'use strict';
+    var root = document.documentElement;
+
+    /* ── Тема + цвет панели браузера ── */
+    var toggle = document.getElementById('theme-toggle');
+    var metaTheme = document.getElementById('metaTheme');
+    function isDark() { return root.getAttribute('data-theme') === 'dark'; }
+    function syncMeta() { if (metaTheme) metaTheme.setAttribute('content', isDark() ? '#101718' : '#f4f7f6'); }
+    syncMeta();
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            if (isDark()) { root.removeAttribute('data-theme'); try { localStorage.setItem('theme', 'light'); } catch (e) {} }
+            else { root.setAttribute('data-theme', 'dark'); try { localStorage.setItem('theme', 'dark'); } catch (e) {} }
+            syncMeta();
+        });
+    }
+
+    /* ── Шапка при прокрутке + «наверх» ── */
+    var header = document.getElementById('siteHeader');
+    var toTop = document.getElementById('toTop');
+    function onScroll() {
+        var y = window.scrollY || window.pageYOffset || 0;
+        if (header) header.classList.toggle('is-scrolled', y > 6);
+        if (toTop) toTop.classList.toggle('visible', y > 420);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ── Мобильное меню ── */
+    var burger = document.getElementById('burger');
+    var nav = document.getElementById('mainNav');
+    function closeNav() { document.body.classList.remove('nav-open'); if (burger) burger.setAttribute('aria-expanded', 'false'); }
+    if (burger && nav) {
+        burger.addEventListener('click', function () {
+            var open = document.body.classList.toggle('nav-open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+        window.addEventListener('resize', function () { if (window.innerWidth > 900) closeNav(); });
+    }
+
+    /* ── Активный пункт меню ── */
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.main-nav a'));
+    var watched = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    if ('IntersectionObserver' in window && watched.length) {
+        var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                navLinks.forEach(function (a) {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+                });
             });
-        })();
-    </script>
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        watched.forEach(function (s) { spy.observe(s); });
+    }
 
+    /* ── Появление блоков при прокрутке ── */
+    var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!('IntersectionObserver' in window) || reduce) {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+        var revObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('is-visible'); revObs.unobserve(en.target); }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        revealEls.forEach(function (el) { revObs.observe(el); });
+    }
+
+    /* ── Открыто / закрыто (по московскому времени) ── */
+    var OPEN_H = 10, CLOSE_H = 20;
+    function mskNow() {
+        var d = new Date();
+        return new Date(d.getTime() + d.getTimezoneOffset() * 60000 + 3 * 3600 * 1000);
+    }
+    function renderStatus() {
+        var now = mskNow();
+        var mins = now.getUTCHours() * 60 + now.getUTCMinutes();
+        var open = mins >= OPEN_H * 60 && mins < CLOSE_H * 60;
+        var text, cls;
+        if (open) {
+            var left = CLOSE_H * 60 - mins;
+            text = left <= 60 ? 'Закроется через ' + left + ' мин' : 'Открыто · до 20:00';
+            cls = 'is-open';
+        } else {
+            var till = mins < OPEN_H * 60 ? OPEN_H * 60 - mins : (24 * 60 - mins) + OPEN_H * 60;
+            text = till <= 90 ? 'Откроемся через ' + till + ' мин' : 'Закрыто · с 10:00';
+            cls = 'is-closed';
+        }
+        Array.prototype.slice.call(document.querySelectorAll('.status')).forEach(function (el) {
+            var dark = el.classList.contains('on-dark') ? ' on-dark' : '';
+            el.className = 'status ' + cls + dark;
+            el.innerHTML = '<span class="dot" aria-hidden="true"></span>' + text;
+        });
+    }
+    renderStatus();
+    setInterval(renderStatus, 60000);
+
+    /* ── Cookie-баннер ── */
+    var cookieBox = document.getElementById('cookieBox');
+    var cookieOk = document.getElementById('cookieOk');
+    var stored = null;
+    try { stored = localStorage.getItem('va-cookies'); } catch (e) {}
+    if (cookieBox && !stored) {
+        setTimeout(function () { cookieBox.classList.add('show'); }, 1200);
+    }
+    if (cookieOk && cookieBox) {
+        cookieOk.addEventListener('click', function () {
+            cookieBox.classList.remove('show');
+            try { localStorage.setItem('va-cookies', 'accepted'); } catch (e) {}
+        });
+    }
+
+    /* ── Год в футере ── */
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
